@@ -2,6 +2,13 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
+// import { BootstrapVue } from 'bootstrap-vue';
+
+// Install BootstrapVue
+// Vue.use(BootstrapVue);
+
+import '../sass/custom.scss';
+
 import VueRouter from 'vue-router';
 Vue.use(VueRouter);
 
