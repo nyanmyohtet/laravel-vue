@@ -2,9 +2,17 @@
 
 Testing Larave and Vue
 
-## NPM Commands
+## Tech
 
-Build asserts
+PHP: 7.2.24
+
+Composer: 1.10.8
+
+NodeJS: 12.18.2
+
+mysql: 14.14
+
+## Build Front-end Asserts
 
 ```npm run build```
 
