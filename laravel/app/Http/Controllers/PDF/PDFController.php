@@ -15,7 +15,7 @@ class PDFController extends Controller
     $pathToFile = storage_path('/app/pdf/').$file_name;
 
     $data = [];
-    $pdf = PDF::loadView('pdf.'.'invoice', $data)->setPaper('a3', 'portrait');
+    $pdf = PDF::loadView('pdf.'.'invoice', $data);
     $pdf->save($pathToFile);
 
     return response()->download($pathToFile, $file_name, [
