@@ -4,7 +4,7 @@
     <style type="text/css">
       @font-face {
           font-family: 'ipag';
-          src: url('/home/nyan/Documents/laravel-vue/public/font/ipag.ttf') format('truetype');
+          src: url('{{resource_path()}}/font/ipag.ttf') format('truetype');
       }
       body {
         font-family: ipag;
@@ -14,7 +14,11 @@
   <body>
     <h1>hello world</h1>
     <p>請求書</p>
-    <p>{{public_path()}}</p>
-    <img src="/home/nyan/Documents/laravel-vue/public/img/img.jpeg" title="img">
+    <div>
+      <img src="{{resource_path()}}/img/img.jpeg" title="img">
+    </div>
+    <div>
+      <img src="{{resource_path()}}/img/img.jpeg" title="img">
+    </div>
   </body>
 </html>
