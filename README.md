@@ -18,8 +18,22 @@ mysql: 5.7.30
 
 ## Build Front-end Asserts
 
-```npm run build```
+`npm run build`
 
 Watch assert files
 
-```npm run watch```
+`npm run watch`
+
+## On Branch Change
+
+Change to project directory and run following commands
+
+`composer install --no-scripts`
+to install composer packages used in back-end
+
+`npm install`
+to install NodeJS packages used in front-end
+
+Finally, run
+
+`npm run watch` to build front-end asserts and watch.
