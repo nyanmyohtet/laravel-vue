@@ -35,6 +35,11 @@ RUN apk update && apk add --no-cache $PHPIZE_DEPS \
 RUN docker-php-ext-install pdo pdo_mysql
 RUN docker-php-ext-enable pdo_mysql
 
+# Install iconv for Error: Wrong charset, conversion from `utf-8' to `us-ascii//TRANSLIT' is not allowed in file /var/www/html/vendor/dompdf/dompdf/src/FontMetrics.php
+RUN apk add gnu-libiconv --update-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/community/ --allow-untrusted
+
+ENV LD_PRELOAD /usr/lib/preloadable_libiconv.so php
+
 # install xdebug and enable it if the development environment is local
 RUN if [ $APP_ENV = "local" ]; then \
    pecl install xdebug; \
