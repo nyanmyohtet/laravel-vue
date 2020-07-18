@@ -32,7 +32,7 @@ class NodeSeeder extends Seeder
   }
 
   /**
-   * reade csv file
+   * read csv file
    * @param {String} $fileName
    * @return {Array} $data
    */
@@ -44,7 +44,7 @@ class NodeSeeder extends Seeder
     // Open the file
     if ( ($fileHandle = fopen($filePath, 'r')) !== false ) {
       // Loop through the CSV rows
-      while ( ($row = fgetcsv($fileHandle, 0, ',')) !== FALSE) {
+      while ( ($row = fgetcsv($fileHandle, 0, ',')) !== false) {
         array_push($data, $row);
       }
     }
