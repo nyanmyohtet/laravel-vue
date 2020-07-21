@@ -11,6 +11,9 @@
         <li class="nav-item">
           <router-link to="/posts" class="nav-link">Posts</router-link>
         </li>
+        <li class="nav-item">
+          <a href v-on:click.prevent="increment">Count++</a>
+        </li>
       </ul>
     </nav>
     <br />
@@ -32,5 +35,12 @@
 </style>
 
 <script>
-export default {};
+export default {
+  methods: {
+    increment() {
+      this.$store.commit("increment");
+      console.log(this.$store.state.count);
+    },
+  },
+};
 </script>
