@@ -26,4 +26,16 @@ class PostControllerTest extends TestCase
     $this->assertTrue(true);
   }
 
+  public function testStore()
+  {
+    $postController = new PostController();
+    $request = new Request([
+        'title' => 'Unit Test',
+        'body' => 'Using PHPUnit'
+      ]);
+    $result = $postController->store($request);
+    $result = (array) $result;
+    $message = $result['original'];
+    $this->assertEquals('successfully added', $message);
+  }
 }
