@@ -8,6 +8,10 @@ use Illuminate\Support\Facades\Artisan;
 
 abstract class TestCase extends BaseTestCase
 {
+  /**
+   * DatabaseMigrations will refresh the database
+   * every time you run the test cases.
+   */
   use CreatesApplication, DatabaseMigrations;
 
   public function setUp(): void
