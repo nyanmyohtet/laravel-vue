@@ -74,6 +74,11 @@ PreCommit:
     flags: ['-IEHnw']
     keywords: ['BROKEN', 'BUG', 'ERROR', 'FIXME', 'HACK', 'NOTE', 'OPTIMIZE', 'REVIEW', 'TODO', 'WTF', 'XXX']
 
+  FileSize:
+    enabled: false
+    description: 'Check for oversized files'
+    size_limit_bytes: 1_000_000
+
   RuboCop:
     enabled: true
     on_warn: fail # Treat all warnings as failures
