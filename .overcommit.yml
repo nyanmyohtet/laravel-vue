@@ -52,7 +52,7 @@ PreCommit:
     quiet: true
 
   CssLint:
-    enabled: false
+    enabled: true
     description: 'Analyze with csslint'
     required_executable: 'csslint'
     flags: ['--quiet', '--format=compact']
