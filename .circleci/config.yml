@@ -18,9 +18,12 @@ jobs:
       #
       # - image: redis:2.8.19
 
+    # working dirctory of laravel
+    working_directory: ~/laravel-vue/laravel
+
     steps:
       - checkout:
-          path: ./laravel
+          path: ~/laravel-vue
 
       - run: sudo apt update # PHP CircleCI 2.0 Configuration File# PHP CircleCI 2.0 Configuration File sudo apt install zlib1g-dev libsqlite3-dev
       - run: sudo docker-php-ext-install zip
