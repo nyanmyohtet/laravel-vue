@@ -15,7 +15,11 @@
 #
 # Uncomment the following lines to make the configuration take effect.
 
-#PreCommit:
+# Hooks that are run after `git commit` is executed, before the commit message
+# editor is displayed. These hooks are ideal for syntax checkers, linters, and
+# other checks that you want to run before you allow a commit object to be
+# created.
+PreCommit:
   RuboCop:
     enabled: true
     on_warn: fail # Treat all warnings as failures
