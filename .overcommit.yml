@@ -20,6 +20,45 @@
 # other checks that you want to run before you allow a commit object to be
 # created.
 PreCommit:
+  ALL:
+    problem_on_unmodified_line: report
+    requires_files: true
+    required: false
+    quiet: false
+
+  AuthorEmail:
+    enabled: true
+    description: 'Check author email'
+    requires_files: false
+    required: true
+    quiet: true
+    pattern: '^[^@]+@.*$'
+
+  AuthorName:
+    enabled: true
+    description: 'Check for author name'
+    requires_files: false
+    required: true
+    quiet: true
+
+  BrokenSymlinks:
+    enabled: true
+    description: 'Check for broken symlinks'
+    quiet: true
+
+  CaseConflicts:
+    enabled: true
+    description: 'Check for case-insensitivity conflicts'
+    quiet: true
+
+  CssLint:
+    enabled: false
+    description: 'Analyze with csslint'
+    required_executable: 'csslint'
+    flags: ['--quiet', '--format=compact']
+    install_command: 'npm install -g csslint'
+    include: '**/*.css'
+
   RuboCop:
     enabled: true
     on_warn: fail # Treat all warnings as failures
@@ -43,3 +82,8 @@ PrepareCommitMsg:
     replacement_text: '[#\1]'
     skipped_commit_types: ['message', 'template', 'merge', 'squash']
     on_fail: warn
+
+# Hooks that are run against every commit message after a user has written it.
+# These hooks are useful for enforcing policies on commit messages written for a
+# project.
+CommitMsg:
