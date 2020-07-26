@@ -79,6 +79,17 @@ PreCommit:
     description: 'Check for oversized files'
     size_limit_bytes: 1_000_000
 
+  HardTabs:
+    enabled: true
+    description: 'Check for hard tabs'
+    quiet: true
+    required_executable: 'grep'
+    flags: ['-IHn', "\t"]
+    exclude:
+      - '**/Makefile'
+      - '**/*.go'
+      - 'laravel/config/dompdf.php'
+
   RuboCop:
     enabled: true
     on_warn: fail # Treat all warnings as failures
