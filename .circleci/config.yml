@@ -60,6 +60,6 @@ jobs:
       # generate APP_KEY for testing
       - run: php artisan key:generate --env=testing
       # run phpunit
-      - run: php artisan test --env=testing
+      - run: php artisan test
       # - run: ./vendor/bin/codecept build
       # - run: ./vendor/bin/codecept run
