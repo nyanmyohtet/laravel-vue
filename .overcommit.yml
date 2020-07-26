@@ -46,11 +46,6 @@ PreCommit:
     description: 'Check for broken symlinks'
     quiet: true
 
-  CaseConflicts:
-    enabled: true
-    description: 'Check for case-insensitivity conflicts'
-    quiet: true
-
   CssLint:
     enabled: false
     description: 'Analyze with csslint'
