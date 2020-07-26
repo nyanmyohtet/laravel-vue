@@ -90,6 +90,13 @@ PreCommit:
       - '**/*.go'
       - 'laravel/config/dompdf.php'
 
+  HtmlHint:
+    enabled: true
+    description: 'Analyze with HTMLHint'
+    required_executable: 'htmlhint'
+    install_command: 'npm install -g htmlhint'
+    include: '**/*.html'
+
   RuboCop:
     enabled: true
     on_warn: fail # Treat all warnings as failures
