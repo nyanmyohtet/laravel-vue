@@ -59,6 +59,21 @@ PreCommit:
     install_command: 'npm install -g csslint'
     include: '**/*.css'
 
+  EsLint:
+    enabled: true
+    description: 'Analyze with ESLint'
+    required_executable: 'eslint'
+    flags: ['--format=compact']
+    install_command: 'npm install -g eslint'
+    include: '**/*.js'
+
+  FixMe:
+    enabled: true
+    description: 'Check for "token" strings'
+    required_executable: 'grep'
+    flags: ['-IEHnw']
+    keywords: ['BROKEN', 'BUG', 'ERROR', 'FIXME', 'HACK', 'NOTE', 'OPTIMIZE', 'REVIEW', 'TODO', 'WTF', 'XXX']
+
   RuboCop:
     enabled: true
     on_warn: fail # Treat all warnings as failures

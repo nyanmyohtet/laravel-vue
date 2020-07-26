@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 require("./bootstrap");
 
 window.Vue = require("vue");
@@ -47,4 +48,5 @@ const routes = [
 ];
 
 const router = new VueRouter({ mode: "history", routes: routes });
+// eslint-disable-next-line no-unused-vars
 const app = new Vue(Vue.util.extend({ router }, App)).$mount("#app");
