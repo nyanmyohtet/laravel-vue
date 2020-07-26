@@ -97,6 +97,18 @@ PreCommit:
     install_command: 'npm install -g htmlhint'
     include: '**/*.html'
 
+  ImageOptim:
+    enabled: false
+    description: 'Check for optimizable images'
+    required_executable: 'image_optim'
+    install_command: 'gem install image_optim'
+    include:
+      - '**/*.gif'
+      - '**/*.jpeg'
+      - '**/*.jpg'
+      - '**/*.png'
+      - '**/*.svg'
+
   RuboCop:
     enabled: true
     on_warn: fail # Treat all warnings as failures
