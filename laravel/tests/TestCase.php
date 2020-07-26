@@ -17,7 +17,8 @@ abstract class TestCase extends BaseTestCase
   public function setUp(): void
   {
     parent::setUp();
+
+    // set up passport
     Artisan::call('passport:install');
-    // Artisan::call('migrate');
   }
 }
