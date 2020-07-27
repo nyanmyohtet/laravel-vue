@@ -21,6 +21,9 @@ jobs:
     # working dirctory of laravel
     working_directory: ~/laravel-vue/laravel
 
+    # run steps in parallel
+    parallelism: 4
+
     steps:
       - checkout:
           path: ~/laravel-vue
