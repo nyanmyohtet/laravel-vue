@@ -37,3 +37,13 @@ to install NodeJS packages used in front-end
 Finally, run
 
 `npm run watch` to build front-end asserts and watch.
+
+## Testing
+
+Run all tests:
+
+`docker-compose exec app php artisan test`
+
+Run individual test:
+
+`docker-compose exec app php artisan test/[Feature|Unit]/[FileName]`
