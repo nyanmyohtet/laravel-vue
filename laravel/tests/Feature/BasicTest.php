@@ -2,26 +2,28 @@
 
 namespace Tests\Feature;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
-use Tests\TestCase;
 use App\Box;
+use Tests\TestCase;
 
 class BasicTest extends TestCase
 {
     /**
-     * A basic feature test example.
+     * Test function for Box class
      *
      * @return void
      */
-    # Test function for Box class
     public function testBoxContents()
     {
-       $box = new Box(['toy']);
-       $this->assertTrue($box->has('toy'));
-       $this->assertFalse($box->has('ball'));
+        $box = new Box(['toy']);
+        $this->assertTrue($box->has('toy'));
+        $this->assertFalse($box->has('ball'));
     }
 
+    /**
+     * Test takeOne function
+     *
+     * @return void
+     */
     public function testTakeOneFromTheBox()
     {
         $box = new Box(['torch']);
@@ -31,6 +33,11 @@ class BasicTest extends TestCase
         $this->assertNull($box->takeOne());
     }
 
+    /**
+     * Test startsWith function
+     *
+     * @return void
+     */
     public function testStartsWithALetter()
     {
         $box = new Box(['toy', 'torch', 'ball', 'cat', 'tissue']);
