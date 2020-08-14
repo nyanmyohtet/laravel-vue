@@ -2,6 +2,48 @@
 
 Testing Larave and Vue
 
+## Development Environment Setup
+
+### Clone project,
+
+`git clone git@github.com:nyanmyohtet/laravel-vue.git`
+
+### Build Docker Images and Up,
+
+`cd laravel-vue`
+
+`docker-compose up -d`
+
+### Install Composer Dependencies,
+
+`docker-compose exec app composer install --no-scripts`
+
+### Copy .env file,
+
+`docker-compose exec app cp .env.example .env`
+
+### Generate APP_KEY (laravel),
+
+`docker-compose exec app php artisan key:generate`
+
+### Migrate Database,
+
+`docker-compose exec app php artisan migrate`
+
+### Install Laravel Passport,
+
+`docker-compose exec app php artisan passport:install`
+
+### Install NodeJS Dependencies,
+
+`docker-compose exec app npm install`
+
+### Watch Front-end,
+
+`docker-compose exec app npm run watch`
+
+Now, app is serving on [http://localhost:8000/]
+
 ## Tech
 
 Docker: 19.03.12, build 48a66213fe
