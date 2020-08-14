@@ -42,7 +42,7 @@ Testing Larave and Vue
 
 `docker-compose exec app npm run watch`
 
-Now, app is serving on [http://localhost:8000/]
+Now, app is serving on [http://localhost:8000](http://localhost:8000)
 
 ## Tech
 
