@@ -31,9 +31,6 @@ RUN apk update && apk add --no-cache $PHPIZE_DEPS \
     php7-session \
     php7-zlib
 
-# Install NodeJS and npm
-RUN apk add --no-cache --update nodejs nodejs-npm
-
 # Install extensions
 RUN docker-php-ext-install pdo pdo_mysql
 RUN docker-php-ext-enable pdo_mysql
