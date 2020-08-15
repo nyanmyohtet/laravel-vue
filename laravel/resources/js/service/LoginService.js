@@ -18,7 +18,7 @@ const LoginService = {
         })
         .then((response) => {
           if (response.status == 200) {
-            store.commit("storeAccessToken", response.data.success.token);
+            store.commit("logIn", response.data.success);
             route.push({ name: "home" });
           }
         })

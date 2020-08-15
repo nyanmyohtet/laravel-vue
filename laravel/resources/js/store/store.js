@@ -1,7 +1,14 @@
 import Vue from "vue";
 import Vuex from "vuex";
+import VuexPersistence from "vuex-persist";
 
 Vue.use(Vuex);
+
+const vuexLocal = new VuexPersistence({
+  storage: window.localStorage,
+  filter: (mutation) => mutation.type == "logIn",
+  reducer: (state) => ({ accessToken: state.accessToken }),
+});
 
 const store = new Vuex.Store({
   state: {
@@ -16,11 +23,16 @@ const store = new Vuex.Store({
       state.count++;
     },
 
-    // store access token
-    storeAccessToken(state, accessToken) {
-      state.accessToken = accessToken;
+    /**
+     * Store access token on login
+     * @param {Object} state
+     * @param {String} token
+     */
+    logIn(state, { token }) {
+      state.accessToken = token;
     },
   },
+  plugins: [vuexLocal.plugin],
 });
 
 export default store;
