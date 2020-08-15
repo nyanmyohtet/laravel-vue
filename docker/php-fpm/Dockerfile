@@ -13,6 +13,7 @@ ARG REMOTE_WORKING_DIR
 # Install Additional dependencies
 RUN apk update && apk add --no-cache $PHPIZE_DEPS \
     build-base shadow nano curl gcc git bash \
+    nodejs nodejs-npm \
     php7 \
     php7-fpm \
     php7-common \
