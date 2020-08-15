@@ -2,18 +2,23 @@ require("./bootstrap");
 
 window.Vue = require("vue");
 
+// router
+import VueRouter from "vue-router";
+Vue.use(VueRouter);
+import router from "./route/route.js";
+
+// bootstrap css
 import { BootstrapVue } from "bootstrap-vue";
-
 Vue.use(BootstrapVue);
-
 import "../sass/custom.scss";
 
+// http client
 import VueAxios from "vue-axios";
 import axios from "axios";
-
-import App from "./App.vue";
 Vue.use(VueAxios, axios);
 
-import router from "./route/route.js";
+// store
 import store from "./store/store.js";
-const app = new Vue(Vue.util.extend({ router, store }, App)).$mount("#app");
+
+import App from "./App.vue";
+new Vue(Vue.util.extend({ router, store }, App)).$mount("#app");
