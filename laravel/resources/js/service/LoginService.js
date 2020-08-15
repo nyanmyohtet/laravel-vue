@@ -5,16 +5,16 @@ import store from "../store/store.js";
 const LoginService = {
   data() {
     return {
-      email: "",
-      password: "",
+      form: { email: "", password: "" },
     };
   },
   methods: {
-    loginHandler() {
+    onSubmit(evt) {
+      evt.preventDefault();
       axios
         .post("http://localhost:8000/api/login", {
-          email: this.email,
-          password: this.password,
+          email: this.form.email,
+          password: this.form.password,
         })
         .then((response) => {
           if (response.status == 200) {
