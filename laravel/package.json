@@ -10,19 +10,10 @@
         "prod": "npm run production",
         "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
     },
-    "jest": {
-        "moduleFileExtensions": [
-            "js",
-            "json",
-            "vue"
-        ],
-        "transform": {
-            ".*\\.(vue)$": "vue-jest"
-        }
-    },
     "devDependencies": {
         "@vue/test-utils": "^1.0.3",
         "axios": "^0.19",
+        "babel-core": "^6.26.3",
         "cross-env": "^7.0",
         "jest": "^26.4.0",
         "laravel-mix": "^5.0.1",
