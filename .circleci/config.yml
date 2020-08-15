@@ -32,7 +32,7 @@ jobs:
       - run: sudo docker-php-ext-install zip
       - run: curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
       - run: sudo apt update
-      - run: sudo apt install nodejs npm
+      - run: sudo apt install nodejs
 
       # Download and cache dependencies
       - restore_cache:
