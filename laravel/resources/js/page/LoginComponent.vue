@@ -10,8 +10,14 @@
         password:
         <input type="password" name="password" />
       </label>
-      <input type="submit" name="login" value="Login" v-on:click.prevent="loginHandler">
+      <input
+        type="submit"
+        name="login"
+        value="Login"
+        v-on:click.prevent="loginHandler"
+      />
     </form>
+    <router-link to="/register">Register</router-link>
   </div>
 </template>
 
