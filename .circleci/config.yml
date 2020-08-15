@@ -58,6 +58,8 @@ jobs:
           paths:
             - node_modules
 
+      - run: npm run test
+
       # copy .env.testing
       - run: cp .env.testing.example .env.testing
 
