@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <!-- <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
       <ul class="navbar-nav">
         <li class="nav-item">
           <router-link to="/" class="nav-link">Home</router-link>
@@ -15,11 +15,11 @@
           <a href v-on:click.prevent="increment">Count++</a>
         </li>
       </ul>
-    </nav>
-    <br />
-    <transition name="fade">
-      <router-view></router-view>
-    </transition>
+    </nav> -->
+    <!-- <br /> -->
+    <!-- <transition name="fade"> -->
+    <router-view></router-view>
+    <!-- </transition> -->
   </div>
 </template>
 

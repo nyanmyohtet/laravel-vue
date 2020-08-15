@@ -4,11 +4,11 @@
     <form>
       <label for="email">
         email:
-        <input type="text" name="email" />
+        <input type="text" name="email" v-model="email" />
       </label>
       <label>
         password:
-        <input type="password" name="password" />
+        <input type="password" name="password" v-model="password" />
       </label>
       <input
         type="submit"
