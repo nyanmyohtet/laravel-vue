@@ -80,6 +80,6 @@ jobs:
       # generate code coverage
       - run:
           name: "Run tests"
-          command: phpdbg -qrr vendor/bin/phpunit --coverage-html build/coverage-report
+          command: phpdbg -qrr vendor/bin/phpunit --coverage-html coverage/php-unit
       - store_artifacts:
-          path: build/coverage-report
+          path: coverage
