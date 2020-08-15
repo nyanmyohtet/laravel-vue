@@ -3,18 +3,23 @@ import router from "../route/route.js";
 
 export default {
   data() {
-    return { name: "", email: "", password: "", c_password: "" };
+    return {
+      form: { name: "", email: "", password: "", c_password: "" },
+      showForm: true,
+    };
   },
   methods: {
-    registerHandler() {
+    onSubmit(evt) {
+      evt.preventDefault();
       axios
         .post("http://localhost:8000/api/register", {
-          name: this.name,
-          email: this.email,
-          password: this.password,
-          c_password: this.c_password,
+          name: this.form.name,
+          email: this.form.email,
+          password: this.form.password,
+          c_password: this.form.c_password,
         })
         .then((response) => {
+          console.log(response);
           if (response.status == 200) {
             router.push("login");
           }
@@ -22,6 +27,9 @@ export default {
         .catch((error) => {
           console.log(error);
         });
+    },
+    onReset() {
+      this.form = { name: "", email: "", password: "", c_password: "" };
     },
   },
 };

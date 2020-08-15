@@ -22,7 +22,7 @@
     },
     "dependencies": {
         "bootstrap": "^4.5.0",
-        "bootstrap-vue": "^2.15.0",
+        "bootstrap-vue": "^2.16.0",
         "downloadjs": "^1.4.7",
         "js-file-download": "^0.4.12",
         "vue": "^2.6.11",

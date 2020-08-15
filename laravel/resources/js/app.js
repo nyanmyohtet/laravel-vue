@@ -2,10 +2,9 @@ require("./bootstrap");
 
 window.Vue = require("vue");
 
-// import { BootstrapVue } from 'bootstrap-vue';
+import { BootstrapVue } from "bootstrap-vue";
 
-// Install BootstrapVue
-// Vue.use(BootstrapVue);
+Vue.use(BootstrapVue);
 
 import "../sass/custom.scss";
 
