@@ -1,7 +1,7 @@
 // jest.config.js
 const { defaults } = require("jest-config");
 module.exports = {
-  collectCoverage: true,
+  collectCoverage: false,
   collectCoverageFrom: [
     "resources/js/**/*.{js,vue}",
     "!**/node_modules/**",
