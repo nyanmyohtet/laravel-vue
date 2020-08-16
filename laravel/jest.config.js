@@ -9,7 +9,7 @@ module.exports = {
   ],
   // An array of file extensions your modules use.
   moduleFileExtensions: ["js", "json", "vue"],
-  testRegex: "resources/js/.*.test.js$",
+  testRegex: "tests/vue/.*.test.js$",
   transform: {
     "^.+\\.vue$": "vue-jest",
     "^.+\\.js$": "babel-jest",

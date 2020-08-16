@@ -1,5 +1,5 @@
 import { shallowMount } from "@vue/test-utils";
-import CreateComponent from "../../components/CreateComponent.vue";
+import CreateComponent from "../../../resources/js/components/CreateComponent.vue";
 
 test("displays Login Component", () => {
   const wrapper = shallowMount(CreateComponent);

@@ -1,5 +1,5 @@
 import { shallowMount } from "@vue/test-utils";
-import LoginComponent from "../../page/LoginComponent.vue";
+import LoginComponent from "../../../resources/js/page/LoginComponent.vue";
 
 test("displays Login Component", () => {
   const wrapper = shallowMount(LoginComponent);
