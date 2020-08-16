@@ -23,15 +23,20 @@ Route::get('/auth/signup/activate/{token}', 'Auth\AuthController@registerActivat
 
 Route::post('login', 'Auth\AuthController@login');
 Route::post('register', 'Auth\AuthController@register');
+
+// auth routes
 Route::group(['middleware' => 'auth:api'], function () {
     Route::post('details', 'Auth\AuthController@details');
-});
 
-Route::post('/post/create', 'PostController@store');
-Route::get('/post/edit/{id}', 'PostController@edit');
-Route::post('/post/update/{id}', 'PostController@update');
-Route::delete('/post/delete/{id}', 'PostController@delete');
-Route::get('/posts', 'PostController@index');
+    // Post API
+    Route::get('posts', 'PostController@index');
+    Route::group(['prefix' => 'post'], function () {
+        Route::get('edit/{id}', 'PostController@edit');
+        Route::post('create', 'PostController@store');
+        Route::post('update/{id}', 'PostController@update');
+        Route::delete('delete/{id}', 'PostController@delete');
+    });
+});
 
 // PDF download route
 Route::post('/pdf/download', 'PDF\PDFController@download');

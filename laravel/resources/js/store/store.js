@@ -14,9 +14,12 @@ const store = new Vuex.Store({
   state: {
     count: 0,
     accessToken: null,
+    showNav: true,
   },
   getters: {
+    accessToken: (state) => state.accessToken,
     isAuthenticated: (state) => !!state.accessToken,
+    isShowNav: (state) => state.showNav,
   },
   mutations: {
     increment(state) {
@@ -30,6 +33,15 @@ const store = new Vuex.Store({
      */
     logIn(state, { token }) {
       state.accessToken = token;
+    },
+
+    /**
+     * Toggle nav bar
+     * @param {Object} state
+     * @param {boolean} status
+     */
+    showNav(state, status) {
+      state.showNav = status;
     },
   },
   plugins: [vuexLocal.plugin],

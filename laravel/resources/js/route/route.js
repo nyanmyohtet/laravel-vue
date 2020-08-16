@@ -28,7 +28,7 @@ const routes = [
   },
   {
     name: "create",
-    path: "/create",
+    path: "/post/create",
     component: CreateComponent,
   },
   {
@@ -38,7 +38,7 @@ const routes = [
   },
   {
     name: "edit",
-    path: "/edit/:id",
+    path: "/post/edit/:id",
     component: EditComponent,
   },
 ];
@@ -48,9 +48,13 @@ const router = new VueRouter({ mode: "history", routes: routes });
 // Global Before Guards
 router.beforeEach((to, from, next) => {
   const isAuthenticated = store.getters.isAuthenticated;
-  if (to.name !== "login" && to.name !== "register" && !isAuthenticated)
+  if (to.name !== "login" && to.name !== "register" && !isAuthenticated) {
+    store.commit("showNav", false);
     next({ name: "login" });
-  else next();
+  } else {
+    store.commit("showNav", true);
+    next();
+  }
 });
 
 export default router;
