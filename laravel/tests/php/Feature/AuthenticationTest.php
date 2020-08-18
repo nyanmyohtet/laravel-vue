@@ -64,14 +64,10 @@ class AuthenticationTest extends TestCase
             'c_password' => 'password123'
         ];
 
-        $this
-            ->json('POST', 'api/register', $userData, ['Accept' => 'application/json'])
+        $this->json('POST', 'api/register', $userData, ['Accept' => 'application/json'])
             ->assertStatus(200)
-            ->assertJsonStructure([
-                'success' => [
-                    'token',
-                    'name'
-                ],
+            ->assertExactJson([
+                'message' => 'Successfully created user!'
             ]);
     }
 
