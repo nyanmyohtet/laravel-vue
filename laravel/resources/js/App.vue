@@ -23,4 +23,4 @@
 }
 </style>
 
-<script src="./service/AppService.js"></script>
+<script src="./AppService.js"></script>
