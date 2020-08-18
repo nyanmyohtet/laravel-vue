@@ -84,6 +84,8 @@ Finally, run
 
 ## Testing
 
+### Laravel
+
 Run all tests:
 
 `docker-compose exec app php artisan test`
@@ -91,3 +93,9 @@ Run all tests:
 Run individual test:
 
 `docker-compose exec app php artisan test/[Feature|Unit]/[FileName]`
+
+### Vue
+
+Run test with Jest,
+
+`docker-compose exec app npm run test`
