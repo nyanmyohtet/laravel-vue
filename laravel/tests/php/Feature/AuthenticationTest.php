@@ -97,6 +97,8 @@ class AuthenticationTest extends TestCase
         factory(User::class)->create([
             'email' => 'sample@test.com',
             'password' => bcrypt('sample123'),
+            'active' => 1,
+            'activation_token' => ''
         ]);
 
         $loginData = ['email' => 'sample@test.com', 'password' => 'sample123'];
