@@ -30,6 +30,10 @@ jobs:
 
       - run: sudo apt update # PHP CircleCI 2.0 Configuration File# PHP CircleCI 2.0 Configuration File sudo apt install zlib1g-dev libsqlite3-dev
       - run: sudo docker-php-ext-install zip
+      - run: sudo cp php.ini-testing /usr/local/etc/php/php.ini
+      - run: curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+      - run: sudo apt update
+      - run: sudo apt install nodejs
 
       # Download and cache dependencies
       - restore_cache:
@@ -40,20 +44,25 @@ jobs:
             - v1-dependencies-
 
       - run: composer install -n --prefer-dist
-
       - save_cache:
           key: v1-dependencies-{{ checksum "composer.json" }}
           paths:
             - ./vendor
+
       - restore_cache:
           keys:
             - node-v1-{{ checksum "package.json" }}
             - node-v1-
-      # - run: yarn install
-      # - save_cache:
-      #     key: node-v1-{{ checksum "package.json" }}
-      #     paths:
-      #       - node_modules
+      - run: npm install
+      - save_cache:
+          key: node-v1-{{ checksum "package.json" }}
+          paths:
+            - node_modules
+
+      - run: npm run test
+
+      # copy .env.testing
+      - run: cp .env.testing.example .env.testing
 
       # generage APP_KEY
       - run: php artisan key:generate --env=testing
@@ -64,13 +73,13 @@ jobs:
 
       # run tests with phpunit or codecept
       # run phpunit
-      - run: php artisan test
+      # - run: php artisan test
       # - run: ./vendor/bin/codecept build
       # - run: ./vendor/bin/codecept run
 
       # generate code coverage
       - run:
           name: "Run tests"
-          command: phpdbg -qrr vendor/bin/phpunit --coverage-html build/coverage-report
+          command: phpdbg -qrr vendor/bin/phpunit --coverage-html coverage/php-unit
       - store_artifacts:
-          path:  build/coverage-report
+          path: coverage

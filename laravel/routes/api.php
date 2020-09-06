@@ -18,18 +18,25 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('login', 'api\UserController@login');
-Route::post('register', 'api\UserController@register');
-Route::group(['middleware' => 'auth:api'], function(){
-    Route::post('details', 'api\UserController@details');
+// Register verify API
+Route::get('/auth/signup/activate/{token}', 'Auth\AuthController@registerActivate');
+
+Route::post('login', 'Auth\AuthController@login');
+Route::post('register', 'Auth\AuthController@register');
+
+// auth routes
+Route::group(['middleware' => 'auth:api'], function () {
+    Route::post('details', 'Auth\AuthController@details');
+
+    // Post API
+    Route::get('posts', 'PostController@index');
+    Route::group(['prefix' => 'post'], function () {
+        Route::get('edit/{id}', 'PostController@edit');
+        Route::post('create', 'PostController@store');
+        Route::post('update/{id}', 'PostController@update');
+        Route::delete('delete/{id}', 'PostController@delete');
+    });
 });
-
-
-Route::post('/post/create', 'PostController@store');
-Route::get('/post/edit/{id}', 'PostController@edit');
-Route::post('/post/update/{id}', 'PostController@update');
-Route::delete('/post/delete/{id}', 'PostController@delete');
-Route::get('/posts', 'PostController@index');
 
 // PDF download route
 Route::post('/pdf/download', 'PDF\PDFController@download');

@@ -14,11 +14,7 @@
         <div class="col-md-6">
           <div class="form-group">
             <label>Post Body:</label>
-            <textarea
-              class="form-control"
-              v-model="post.body"
-              rows="5"
-            ></textarea>
+            <textarea class="form-control" v-model="post.body" rows="5"></textarea>
           </div>
         </div>
       </div>
@@ -31,6 +27,7 @@
 </template>
 
 <script>
+import store from "../store/store.js";
 export default {
   data() {
     return {
@@ -40,9 +37,15 @@ export default {
   methods: {
     addPost() {
       let uri = "http://localhost:8000/api/post/create";
-      this.axios.post(uri, this.post).then((response) => {
-        this.$router.push({ name: "posts" });
-      });
+      this.axios
+        .post(uri, this.post, {
+          headers: {
+            Authorization: "Bearer " + store.getters.accessToken,
+          },
+        })
+        .then((response) => {
+          this.$router.push({ name: "posts" });
+        });
     },
   },
 };

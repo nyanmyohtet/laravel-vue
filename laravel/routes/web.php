@@ -13,6 +13,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/{any}', function () {
-    return view('post');
-})->where('any', '.*');
+Route::get('/{any}', 'HomeController@index')->where('any', '.*')->name('home');

@@ -41,15 +41,31 @@ services:
     image: mysql:5.7
     container_name: database
     environment:
-      MYSQL_DATABASE: 'laravel'
-      MYSQL_USER: 'user'
-      MYSQL_PASSWORD: 'secret'
-      MYSQL_ROOT_PASSWORD: 'password'
+      MYSQL_DATABASE: "laravel"
+      MYSQL_USER: "user"
+      MYSQL_PASSWORD: "secret"
+      MYSQL_ROOT_PASSWORD: "password"
     ports:
       - 3366:3306
     volumes:
       - ./mysql/custom.cnf:/etc/mysql/conf.d/custom.cnf
       - database-volume:/var/lib/mysql
+    depends_on:
+      - app
+    networks:
+      - app-network
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    environment:
+      PMA_ARBITRARY: 1
+      PMA_HOST: "database"
+    restart: always
+    ports:
+      - 8080:80
+    volumes:
+      - /sessions
     depends_on:
       - app
     networks:
