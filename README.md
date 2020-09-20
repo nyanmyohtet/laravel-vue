@@ -56,17 +56,13 @@ Composer: 1.10.8
 
 NodeJS: 12.18.2
 
-mysql: 5.7.30
+MySQL: 5.7.30
 
 VueJS: 2.6.11
 
 ## Build Front-end Asserts
 
 `npm run build`
-
-Watch assert files
-
-`npm run watch`
 
 ## On Branch Change
 
